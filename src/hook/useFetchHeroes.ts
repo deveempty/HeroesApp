@@ -13,7 +13,7 @@ export const useFetchHeroes = (heros:string) => {
         const { data, status} = await getHeroes({heroes: heros})
         setData(data)
         setIsLoading(false)
-        status == 'error' ? toast.error(`${status} - Your hero might doesn't exist`) && setStatus(false) : setStatus(true)
+        status == 'error' ? toast.error(`${status} - Your hero might not exist`) && setStatus(false) : setStatus(true)
     }
     
     useEffect( () => {
