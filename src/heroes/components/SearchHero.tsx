@@ -10,11 +10,12 @@ export const SearchHero = () => {
     const [searchValue = '', setSearchValue] = useState<string>();
     
     const [categories, setCategories] = useState<string[]>([])
+    
+
   
     const onAddCategory = ( newCategory: string ) => {
       setCategories([newCategory, ...categories])
     }
-    
     
     const onSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -27,6 +28,10 @@ export const SearchHero = () => {
         const { value } = target;
         setSearchValue(value)   
     }    
+    
+    const onOpenHero = () => {
+      console.log('Open')
+    }
   
   return (
     <>
@@ -44,8 +49,10 @@ export const SearchHero = () => {
    
     {
       categories.map((category) => (
-      <div className='animate__animated animate__fadeIn'>
-        <HeroGrid 
+      <div className='animate__animated animate__fadeIn'
+        onClick={onOpenHero}
+      >
+        <HeroGrid
         key={category}
         hero={category}
         />

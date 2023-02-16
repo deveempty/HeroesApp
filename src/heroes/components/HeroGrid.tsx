@@ -14,6 +14,17 @@ interface DataElement {
 export const HeroGrid = ({hero}: {hero:string}) => {
 
     const { data, isLoading, status } = useFetchHeroes(hero)
+    
+    const getHeroSuggestion = () => {
+      const test =  data.filter(
+        heroSuggestion => heroSuggestion.name.toLocaleLowerCase().includes(hero)
+    )
+    
+    console.log(test)
+    
+    }
+    
+    getHeroSuggestion()
 
   return (
     <>  
